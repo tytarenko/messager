@@ -11,6 +11,36 @@
 |
 */
 
+Route::group(
+    [
+        'prefix' => 'api',
+        'namespace' => 'Api'
+    ],
+    function()
+    {
+        Route::group(
+            [
+                'prefix' => 'v1',
+            ],
+            function() {
+
+                Route::resource(
+                    'users',
+                    'UsersController',
+                    ['except' => ['create', 'edit']]
+                );
+
+                Route::resource(
+                    'users.messages',
+                    'MessagesController',
+                    ['except' => ['create', 'edit']]
+                );
+
+            }
+        );
+    }
+);
+
 Route::get('/', function () {
     return view('welcome');
 });
