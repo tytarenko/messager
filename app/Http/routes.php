@@ -24,6 +24,19 @@ Route::group(
             ],
             function() {
 
+                Route::get(
+                    '/',
+                    [
+                        'as' => 'main',
+                        'uses' => 'MainController@index'
+                    ]
+                );
+
+                Route::options('users',                                 'MainController@options');
+                Route::options('users/{user_id}',                       'MainController@options');
+                Route::options('users/{user_id}/messages',              'MainController@options');
+                Route::options('users/{user_id}/messages/{message_id}', 'MainController@options');
+
                 Route::resource(
                     'users',
                     'UsersController',

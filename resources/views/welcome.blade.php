@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>API</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -30,15 +30,17 @@
                 display: inline-block;
             }
 
-            .title {
+            .title a {
                 font-size: 96px;
+                text-decoration: none;
+                color: #000;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title"><a href="{{ route('main') }}">API</a></div>
             </div>
         </div>
     </body>
