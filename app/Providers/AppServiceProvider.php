@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+
+use App\Providers\Api\MessagesProviderInterface;
+use App\Providers\Api\UsersProvider;
+use App\Providers\Api\MessagesProvider;
+use App\Providers\Api\UsersProviderInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(UsersProviderInterface::class, UsersProvider::class);
+        $this->app->bind(MessagesProviderInterface::class, MessagesProvider::class);
     }
 }

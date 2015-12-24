@@ -11,11 +11,27 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'id' => '',
+        'username' => $faker->name,
         'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'password' => str_random(8),
+        'status' => array_rand_val([true, false]),
+//        'created_at' => $faker->dateTime(),
+//        'updates_at' => $faker->dateTime(),
+    ];
+});
+
+$factory->define(App\Models\Message::class, function (Faker\Generator $faker) {
+    return [
+        'id' => null,
+        'sender_id' => null,
+        'receiver_id' => null,
+        'subject' => $faker->sentences(array_rand_val([3,5,7])),
+        'body' => $faker->paragraph,
+        'read' => array_rand_val([true, false]),
+//        'created_at' => $faker->dateTime(),
+//        'updates_at' => $faker->dateTime(),
     ];
 });
